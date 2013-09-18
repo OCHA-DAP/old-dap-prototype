@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Datasets</title>
+    <title>{$dataset.name} - dataset - DAP</title>
     <link rel="stylesheet" type="text/css" href="/style/style.css" />
   </head>
   <body>
@@ -22,7 +22,7 @@
 
     <ul>
 {foreach item=indicator from=$indicators}
-      <li><a href="/indicators/{$dataset.dsid|escape:url}/{$indicator.indid|escape:url}/">{$indicator.indicator_name|escape}</a> ({$indicator.num|number_format} values)</li>
+      <li><a href="/datasets/{$dataset.dsid|escape:url}/{$indicator.indid|escape:url}/">{$indicator.indicator_name|escape}</a> ({$indicator.num|number_format} values)</li>
 {/foreach}      
     </ul>
 

@@ -44,6 +44,13 @@ class DAO {
     return $statement->fetch();
   }
 
+  static function get_dataset_indicator($code, $indicator_code) {
+    global $APP;
+    $statement = $APP->pdo->prepare('select * from ValueView where dsid=? and indid=? order by region_name, period');
+    $statement->execute(array($code, $indicator_code));
+    return $statement->fetchAll();
+  }
+
   static function get_dataset_indicators($code) {
     global $APP;
     $statement = $APP->pdo->prepare('select indid, indicator_name, count(dsid) as num from ValueView where dsid=? group by indid, indicator_name order by indicator_name');
