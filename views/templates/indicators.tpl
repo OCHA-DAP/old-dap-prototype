@@ -11,6 +11,7 @@
 {foreach item=indicator from=$indicators}
       <dt>{$indicator.indid|escape}</dt>
       <dd><a href="/indicators/{$indicator.indid|escape:url}/">{$indicator.name|escape}</a></dd>
+      <dd>Unit: {$indicator.unit|escape}</dd>
 {/foreach}
     </dl>
 
