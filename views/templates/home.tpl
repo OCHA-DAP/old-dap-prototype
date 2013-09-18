@@ -3,6 +3,7 @@
 <html>
   <head>
     <title>Data and Analysis Project (UN-OCHA)</title>
+    <link rel="stylesheet" type="text/css" href="/style/style.css" />
   </head>
   <body>
     <h1>Data and Analysis Project</h1>

@@ -1,0 +1,19 @@
+body {
+    font-family: Helvetica, sanserif;
+    margin: 1em 3em;
+}
+
+.breadcrumbs {
+    font-size: 90%;
+    list-style: none;
+    padding-left: 0;
+}
+
+.breadcrumbs li {
+    display: inline;
+    padding-left: 0;
+}
+
+.breadcrumbs li:after {
+    content: " » ";
+}

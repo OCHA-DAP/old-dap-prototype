@@ -3,6 +3,7 @@
 <html>
   <head>
     <title>Indicators</title>
+    <link rel="stylesheet" type="text/css" href="/style/style.css" />
   </head>
   <body>
     <ul class="breadcrumbs">
