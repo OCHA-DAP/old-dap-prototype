@@ -5,6 +5,10 @@
     <title>Countries</title>
   </head>
   <body>
+    <ul class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+    </ul>
+
     <h1>Countries</h1>
 
     <dl>

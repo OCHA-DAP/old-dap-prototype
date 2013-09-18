@@ -5,6 +5,10 @@
     <title>Datasets</title>
   </head>
   <body>
+    <ul class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+    </ul>
+
     <h1>Datasets</h1>
 
     <dl>

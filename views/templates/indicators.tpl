@@ -5,6 +5,10 @@
     <title>Indicators</title>
   </head>
   <body>
+    <ul class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+    </ul>
+
     <h1>Indicators</h1>
 
     <dl>
