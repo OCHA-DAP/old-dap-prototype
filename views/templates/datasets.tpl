@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Datasets</title>
+    <title>All source datasets - DAP</title>
     <link rel="stylesheet" type="text/css" href="/style/style.css" />
   </head>
   <body>
@@ -10,15 +10,16 @@
       <li><a href="/">Home</a></li>
     </ul>
 
-    <h1>Datasets</h1>
+    <h1>All source datasets</h1>
 
-    <dl>
+    <ol>
 {foreach item=dataset from=$datasets}
-      <dt>{$dataset.dsid|escape}</dt>
-      <dd><a href="/datasets/{$dataset.dsid|escape:url}/">{$dataset.name|escape}</a></dd>
-      <dd>Last updated {$dataset.last_scraped|escape}</dd>
+      <li>
+        <a href="/datasets/{$dataset.dsid|escape:url}/">{if $dataset.name}{$dataset.name|escape}{else}{$dataset.dsid|escape}{/if}</a>
+        (last updated {$dataset.last_scraped|date_format})
+      </li>
 {/foreach}
-    </dl>
+    </ol>
 
   </body>
 </html>

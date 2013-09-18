@@ -4,7 +4,7 @@ class DAO {
 
   static function get_countries() {
     global $APP;
-    $statement = $APP->pdo->prepare('select * from Regions order by regionid');
+    $statement = $APP->pdo->prepare('select * from Regions order by name');
     $statement->execute();
     return $statement->fetchAll();
   }

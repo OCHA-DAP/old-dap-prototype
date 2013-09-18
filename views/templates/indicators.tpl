@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Indicators</title>
+    <title>All indicators - DAP</title>
     <link rel="stylesheet" type="text/css" href="/style/style.css" />
   </head>
   <body>
@@ -10,15 +10,16 @@
       <li><a href="/">Home</a></li>
     </ul>
 
-    <h1>Indicators</h1>
+    <h1>All indicators</h1>
 
-    <dl>
+    <ol>
 {foreach item=indicator from=$indicators}
-      <dt>{$indicator.indid|escape}</dt>
-      <dd><a href="/indicators/{$indicator.indid|escape:url}/">{$indicator.name|escape}</a></dd>
-      <dd>Unit: {$indicator.unit|escape}</dd>
+      <li>
+        <a href="/indicators/{$indicator.indid|escape:url}/">{if $indicator.name}{$indicator.name|escape}{else}{$indicator.indid|escape}{/if}</a>
+        {if $indicator.unit}({$indicator.unit|escape}){/if}
+      </li>
 {/foreach}
-    </dl>
+    </ol>
 
   </body>
 </html>

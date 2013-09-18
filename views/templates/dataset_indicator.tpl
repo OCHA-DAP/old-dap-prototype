@@ -8,7 +8,7 @@
   <body>
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
-      <li><a href="/datasets/">Datasets</a></li>
+      <li><a href="/datasets/">Source datasets</a></li>
       <li><a href="/datasets/{$dataset.dsid|escape:url}/">{$dataset.name|escape}</a></li>
     </ul>
 
