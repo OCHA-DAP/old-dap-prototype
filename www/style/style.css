@@ -30,3 +30,8 @@ li {
 th, td {
     padding: .5ex;
 }
+
+.table-separator td {
+    font-size: .5ex;
+    background: #eeeeee;
+}

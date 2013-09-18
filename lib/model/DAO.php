@@ -72,4 +72,11 @@ class DAO {
     return $statement->fetch();
   }
 
+  static function get_indicator_values($code) {
+    global $APP;
+    $statement = $APP->pdo->prepare('select * from ValueView where indid=? order by region_name, period, dataset_name');
+    $statement->execute(array($code));
+    return $statement->fetchAll();
+  }
+
 }
