@@ -20,7 +20,7 @@ try {
   if (!$controller_name) {
     throw new Exception("Not found");
   }
-  $controller = new $controller_name();
+  $controller = new $controller_name($path_elements);
 
   //
   // Call the controller

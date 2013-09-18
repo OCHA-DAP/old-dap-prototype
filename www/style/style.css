@@ -22,3 +22,7 @@ dt {
     margin-top: 2ex;
     font-weight: bold;
 }
+
+li {
+    margin: 1ex 0;
+}
