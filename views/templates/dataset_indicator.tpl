@@ -37,7 +37,7 @@
 {/if}
 {assign var=last_region value=$value.region}
         <tr>
-          <td><a href="/countries/{$value.region|escape:url}/">{$value.region_name|escape}</a></td>
+          <td><a href="/countries/{$value.region|escape:url}/{$value.indid|escape:url}/">{$value.region_name|escape}</a></td>
           <td>{$value.period|escape}</td>
           <td>{$value.value|escape}</td>
           <td>{$value.indicator_unit|escape}</td>

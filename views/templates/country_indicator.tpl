@@ -34,7 +34,7 @@
           <td>{$value.period|escape}</td>
           <td>{$value.value|escape}</td>
           <td>{$value.indicator_unit|escape}</td>
-          <td><a href="/datasets/{$value.dsid|escape:url}/">{$value.dataset_name|escape}</a></td>
+          <td><a href="/datasets/{$value.dsid|escape:url}/{$value.indid|escape:url}/">{$value.dataset_name|escape}</a></td>
           <td>{$value.dataset_last_scraped|date_format|escape}</td>
         </tr>
 {/foreach}
