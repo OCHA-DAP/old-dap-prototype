@@ -6,10 +6,10 @@
 global $APP;
 
 $APP->paths = array(
-  '' => 'HomeController',
-  'countries/' => 'CountryController',
-  'datasets/' => 'DatasetController',
-  'indicators/' => 'IndicatorController',
+  '!^$!' => 'HomeController',
+  '!^countries/$!' => 'CountryController',
+  '!^datasets/$!' => 'DatasetController',
+  '!^indicators/$!' => 'IndicatorController',
 );
 
 // end

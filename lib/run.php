@@ -10,7 +10,13 @@ header('Content-Type: text/html; charset=utf-8');
 
 try {
   $path = $request->get('p');
-  $controller_name = @$APP->paths[$path];
+  $path_elements = array();
+  foreach (@$APP->paths as $pattern => $name) {
+    if (preg_match($pattern, $path, $path_elements)) {
+      $controller_name = $name;
+      break;
+    }
+  }
   if (!$controller_name) {
     throw new Exception("Not found");
   }
