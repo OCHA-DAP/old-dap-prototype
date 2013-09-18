@@ -5,6 +5,9 @@ require_once(__DIR__ . '/../config/init.php');
 $request = new HttpRequest();
 $response = new HttpResponse();
 
+// set the character encoding to UTF-8 by default
+header('Content-Type: text/html; charset=utf-8');
+
 try {
   $path = $request->get('p');
   $controller_name = @$APP->paths[$path];

@@ -11,6 +11,7 @@ $APP->root = __DIR__ . '/..';
 
 set_include_path(get_include_path() . PATH_SEPARATOR .
                  $APP->root . "/lib/controllers" . PATH_SEPARATOR .
+                 $APP->root . "/lib/model" . PATH_SEPARATOR .
                  $APP->root . "/lib");
 
 //
