@@ -7,14 +7,26 @@ class CountryController extends AbstractController {
   }
 
   function doGET(HttpRequest $request, HttpResponse $response) {
-    if (count($this->path_elements) == 1) {
+    switch (count($this->path_elements)) {
+    case 1:
       $response->setParameter('countries', DAO::get_countries());
       $response->setTemplate('countries');
-    } else {
+      return;
+    case 2:
       $code = $this->path_elements[1];
       $response->setParameter('country', DAO::get_country($code));
       $response->setParameter('indicators', DAO::get_country_indicators($code));
       $response->setTemplate('country');
+      return;
+    case 3:
+      list($dummy, $code, $indicator_code) = $this->path_elements;
+      $response->setParameter('country', DAO::get_country($code));
+      $response->setParameter('indicator', DAO::get_indicator($indicator_code));
+      $response->setParameter('values', DAO::get_country_indicator($code, $indicator_code));
+      $response->setTemplate('country_indicator');
+      return;
+    default:
+      throw new Exception("Wrong number of parameters");
     }
   }
 
