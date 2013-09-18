@@ -1,0 +1,24 @@
+########################################################################
+# Rewrite rules for clean URLs.
+########################################################################
+
+<ifmodule mod_rewrite.c>
+
+RewriteEngine On
+
+RewriteBase /
+
+#
+# Patterns for static files
+# (add any additional ones here)
+#
+RewriteRule ^images/    -               [L]
+RewriteRule ^style/     -               [L]
+RewriteRule ^scripts/   -               [L]
+
+#
+# Everything else goes to index.php
+#
+RewriteRule ^(.*)$      index.php?p=$1  [QSA,L]
+
+</ifmodule>
