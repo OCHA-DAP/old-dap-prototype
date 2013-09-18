@@ -17,3 +17,8 @@ body {
 .breadcrumbs li:after {
     content: " » ";
 }
+
+dt {
+    margin-top: 2ex;
+    font-weight: bold;
+}
