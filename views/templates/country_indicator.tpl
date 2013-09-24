@@ -4,6 +4,19 @@
   <head>
     <title>{$country.name|escape} - {$indicator.name|escape} - DAP</title>
     <link rel="stylesheet" type="text/css" href="/style/style.css" />
+    {if $values[0].is_number and $values|count > 1}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="/scripts/line-chart.js"></script>
+    <script type="text/javascript">
+      var chart_title = '{$indicator.name|addslashes}';
+      var chart_unit = '{$indicator.unit|addslashes}';
+      var chart_data = [
+      {foreach item=value from=$values}
+      ['{$value.period|addslashes}', {$value.value}],
+      {/foreach}
+      ];
+    </script>
+    {/if}
   </head>
   <body>
     <ul class="breadcrumbs">
@@ -14,32 +27,46 @@
 
     <h1>Indicator: {$indicator.name|escape}</h1>
 
-    <p><b>Country:</b> <a href="/countries/{$country.regionid|escape:url}/">{$country.name|escape}</a></p>
+    <section id="chart">
+      <div id="chart_container"></div>
+    </section>
 
-    <p><b>Compare with other countries:</b> <a href="/indicators/{$indicator.indid|escape:url}/">{$indicator.name}</a></p>
+    <section id="data">
+      <h2>Data</h2>
 
-    <table border="1">
-      <thead>
-        <tr>
-          <th>Period</th>
-          <th>Value</th>
-          <th>Unit</th>
-          <th>Source</th>
-          <th>Fetched</th>
-        </tr>
-      </thead>
-      <tbody>
-{foreach item=value from=$values}
-        <tr>
-          <td>{$value.period|escape}</td>
-          <td>{$value.value|escape}</td>
-          <td>{$value.indicator_unit|escape}</td>
-          <td><a href="/datasets/{$value.dsid|escape:url}/{$value.indid|escape:url}/">{$value.dataset_name|escape}</a></td>
-          <td>{$value.dataset_last_scraped|date_format|escape}</td>
-        </tr>
-{/foreach}
-      </tbody>
-    </table>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Period</th>
+            <th>Value</th>
+            <th>Unit</th>
+            <th>Source</th>
+            <th>Fetched</th>
+          </tr>
+        </thead>
+        <tbody>
+          {foreach item=value from=$values}
+          <tr>
+            <td>{$value.period|escape}</td>
+            <td>{$value.value|escape}</td>
+            <td>{$value.indicator_unit|escape}</td>
+            <td><a href="/datasets/{$value.dsid|escape:url}/{$value.indid|escape:url}/">{$value.dataset_name|escape}</a></td>
+            <td>{$value.dataset_last_scraped|date_format|escape}</td>
+          </tr>
+          {/foreach}
+        </tbody>
+      </table>
+
+    </section>
+
+    <section id="see-also">
+      <h2>See also</h2>
+
+      <p><b>Country:</b> <a href="/countries/{$country.regionid|escape:url}/">{$country.name|escape}</a></p>
+
+      <p><b>Compare with other countries:</b> <a href="/indicators/{$indicator.indid|escape:url}/">{$indicator.name}</a></p>
+
+    </section>
 
   </body>
 </html>
