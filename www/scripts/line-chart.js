@@ -23,7 +23,7 @@ function drawChart() {
     var options = {
         'title': chart_title,
         'chartArea': {
-            left:0
+            left: '3%'
         }
     };
 
