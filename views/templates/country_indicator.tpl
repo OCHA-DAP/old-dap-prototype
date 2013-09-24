@@ -2,21 +2,24 @@
 
 <html>
   <head>
+{if $values[0].is_number and $values|count > 1}
+  {assign var=chart_active value=1}
+{/if}
     <title>{$country.name|escape} - {$indicator.name|escape} - DAP</title>
     <link rel="stylesheet" type="text/css" href="/style/style.css" />
-    {if $values[0].is_number and $values|count > 1}
+{if $chart_active}
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="/scripts/line-chart.js"></script>
     <script type="text/javascript">
       var chart_title = '{$indicator.name|addslashes}';
       var chart_unit = '{$indicator.unit|addslashes}';
       var chart_data = [
-      {foreach item=value from=$values}
-      ['{$value.period|addslashes}', {$value.value}],
-      {/foreach}
+  {foreach item=value from=$values}
+      ['{$value.period|addslashes}', {$value.value}]{if !$value@last},{/if}
+  {/foreach}
       ];
     </script>
-    {/if}
+{/if}
   </head>
   <body>
     <ul class="breadcrumbs">
@@ -27,9 +30,13 @@
 
     <h1>Indicator: {$indicator.name|escape}</h1>
 
+{if $chart_active}
     <section id="chart">
+      <h2>Chart</h2>
+
       <div id="chart_container"></div>
     </section>
+{/if}
 
     <section id="data">
       <h2>Data</h2>
