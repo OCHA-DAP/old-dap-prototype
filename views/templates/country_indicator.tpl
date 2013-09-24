@@ -41,6 +41,9 @@
     <section id="data">
       <h2>Data</h2>
 
+{assign var=filename value="`$country.regionid`_`$indicator.indid`.csv"|escfile}
+      <p><b>Download as spreadsheet:</b> <a href="{$filename}">{$filename}</a></p>
+
       <table border="1">
         <thead>
           <tr>

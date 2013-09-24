@@ -25,6 +25,12 @@ class CountryController extends AbstractController {
       $response->setParameter('values', DAO::get_country_indicator($code, $indicator_code));
       $response->setTemplate('country_indicator');
       return;
+    case 4:
+      list($dummy, $code, $indicator_code, $filename) = $this->path_elements;
+      $response->setHeader('Content-type', 'text/csv; charset=utf8');
+      $response->setParameter('values', DAO::get_country_indicator($code, $indicator_code));
+      $response->setTemplate('country_indicator_csv');
+      return;
     default:
       throw new Exception("Wrong number of parameters");
     }

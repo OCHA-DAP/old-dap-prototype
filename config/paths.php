@@ -7,7 +7,7 @@ global $APP;
 
 $APP->paths = array(
   '!^$!' => 'HomeController',
-  '!^countries/(?:([A-Z]{3})/(?:([^/]+)/)?)?$!' => 'CountryController',
+  '!^countries/(?:([A-Z]{3})/(?:([^/]+)/(.+\\.csv)?)?)?$!' => 'CountryController',
   '!^datasets/(?:([^/]+)/(?:([^/]+)/)?)?$!' => 'DatasetController',
   '!^indicators/(?:([^/]+)/)?$!' => 'IndicatorController',
 );

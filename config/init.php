@@ -41,4 +41,28 @@ spl_autoload_register(function ($class_name) {
   require_once $class_name . '.php';
 });
 
+
+
+/**
+ * Escape for CSV (move this somewhere else).
+ *
+ * Used in CSV Smarty templates.
+ */
+function esccsv($s) {
+  $s = preg_replace('/"/', '""', $s);
+  if (strpos($s, ',') !== false || strpos($s, '"') !== false || strpos($s, "\n") !== false || strpos($s, "\r") !== false) {
+    $s = "\"$s\"";
+  }
+  return $s;
+}
+
+/**
+ * Escape for a file name (move this somewhere else).
+ *
+ * Used in CSV Smarty templates.
+ */
+function escfile($s) {
+  return preg_replace('/[^A-Za-z0-9.]+/', '_', $s);
+}
+
 // end
