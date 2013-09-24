@@ -20,7 +20,12 @@ function drawChart() {
     data.addRows(chart_data);
 
     // Set chart options
-    var options = {'title':chart_title};
+    var options = {
+        'title': chart_title,
+        'chartArea': {
+            left:0
+        }
+    };
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.LineChart(document.getElementById('chart_container'));

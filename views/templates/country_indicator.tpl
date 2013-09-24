@@ -2,7 +2,7 @@
 
 <html>
   <head>
-{if $values[0].is_number and $values|count > 1}
+{if $values|count > 1 and $values[0].period and $values[0].is_number}
   {assign var=chart_active value=1}
 {/if}
     <title>{$country.name|escape} - {$indicator.name|escape} - DAP</title>
