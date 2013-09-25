@@ -18,6 +18,14 @@
  */
 abstract class AbstractController {
 
+  /**
+   * Save parameters from the URL path.
+   *
+   * @param $path_elements URL path elements to store for subclasses.
+   */
+  function __construct($path_elements) {
+    $this->path_elements = $path_elements;
+  }
 
   /**
    * Handle an HTTP GET request.

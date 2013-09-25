@@ -1,3 +1,8 @@
-This is a template PHP application using the Smarty template engine.
+UN-OCHA Data Analysis Project web application
 
-Started by David Megginson 2013-03-28
+This is a prototype web application for UN-OCHA's Data Analysis
+Project (DAP).  The application uses the PHP programming language, the
+PostgreSQL database, and the Smarty template engine.
+
+
+Started by David Megginson, September 2013

@@ -41,8 +41,11 @@
     <section id="data">
       <h2>Data</h2>
 
-{assign var=filename value="`$country.regionid`_`$indicator.indid`.csv"|escfile}
-      <p><b>Download as spreadsheet:</b> <a href="{$filename}">{$filename}</a></p>
+{assign var=filename value="`$country.regionid`_`$indicator.indid`.csv"}
+      <p title="Download as a spreadsheet.">
+        <img class="icon" src="/images/spreadsheet.png" alt="Spreadsheet icon." />
+        <a href="{$filename|escfile}">{$filename|escfile}</a>
+      </p>
 
       <table border="1">
         <thead>

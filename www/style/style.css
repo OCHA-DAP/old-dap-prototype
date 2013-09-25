@@ -35,3 +35,7 @@ th, td {
     font-size: .5ex;
     background: #eeeeee;
 }
+
+.icon {
+    height: 3ex;
+}
